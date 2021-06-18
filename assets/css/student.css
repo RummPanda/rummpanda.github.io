@@ -614,40 +614,203 @@ video {
 	transition: 0.4s;
 }
 
-
-/* ==== Stream Area ==== */
-.stream-area {
-	display: none;
-}
-
-.show .stream-area {
-	display: flex;
-}
-
-.show .main-header,
-.show .main-blogs,
-.show .small-header,
-.show .videos {
-	display: none;
-}
-/* ==== end Stream Area Show ==== */
-
 /* ==== My Classes Tab Page ==== */
-.class-area {
-	display: none;
+.video-class {
+	width: 65%;
+	-o-object-fit: cover;
+	object-fit: cover;
+	transition: 0.3s;
 }
 
-.show2 .class-area {
+.video-class:hover .video-js .vjs-big-play-button {
+	opacity: 1;
+}
+
+.like {
 	display: flex;
+	align-items: center;
+	background-color: var(--button-bg);
+	color: #fff;
+	border: 0;
+	font-family: var(--body-font);
+	border-radius: 8px;
+	padding: 10px 16px;
+	font-size: 14px;
+	cursor: pointer;
 }
 
-.show2 .main-header,
-.show2 .main-blogs,
-.show2 .small-header,
-.show2 .videos {
-	display: none;
+.like.red {
+	background-color: #ea5f5f;
+}
+
+.like svg {
+	width: 24px;
+	flex-shrink: 0;
+	margin-right: 10px;
+	padding: 0;
+}
+
+.like + .like {
+	margin-left: 16px;
+}
+
+.like:hover,
+.add:hover
+.save:hover {
+	transform: scale(1.1);
+	transition: .2s ease-in;
+}
+
+/* ==== Lesson List ==== */
+.lesson:hover {
+	transform: scale(1.2);
+	transition: .2s ease-in;
+}
+
+.list-header {
+	display: flex;
+	align-items: center;
+	padding: 20px 0;
+	font-size: 16px;
+	font-weight: 600;
+	color: #fff;
+	position: sticky;
+	top: 0;
+	background-color: #252836;
+	left: 0;
+	z-index: 1;
+	border-bottom: 1px solid var(--border-color);
+}
+
+.list-header svg {
+	width: 15px;
+	margin-right: 6px;
+	flex-shrink: 0;
+}
+
+.list-header span {
+	margin-left: auto;
+	color: var(--body-color);
+	font-size: 12px;
+	display: flex;
+	align-items: center;
+}
+
+.class-list {
+	flex-grow: 1;
+	margin-left: 30px;
+}
+
+.list {
+	background-color: #252836;
+	border-radius: 20px;
+	padding: 0 20px;
+	max-height: 414px;
+	overflow: auto;
+}
+
+.list-vid__title {
+	color: #474157;
+	font-size: 18px;
+}
+
+.list-vid__container {
+	margin-top: 40px;
+}
+
+.list-vid__wrapper {
+	display: flex;
+	align-items: center;
+	margin-top: 26px;
+}
+
+.list-vid__name {
+	color: #67C8FF;
+	font-size: 14px;
+	line-height: 1.3em;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+	-webkit-box-orient: vertical;
+}
+
+.list-vid__img {
+	width: 100px;
+	height: 80px;
+	border-radius: 10px;
+	-o-object-fit: cover;
+	 object-fit: cover;
+	-o-object-position: right;
+	 object-position: right;
+	margin-right: 16px;
+	transition: 0.3s;
+}
+
+.list-vid__img:hover {
+	transform: scale(1.02);
+}
+
+.list-vid__content {
+	max-width: 20ch;
+}
+
+.list-vid__by, .list-vid__info {
+	color: var(--body-color);
+	font-size: 13px;
+}
+
+.list-vid__by {
+	margin: 6px 0;
+}
+
+.list-vid__button {
+	background-color: #3b7df6;
+	border: 0;
+	color: #fff;
+	font-size: 13px;
+	margin-top: 26px;
+	display: flex;
+	padding: 0 10px;
+	align-items: center;
+	justify-content: center;
+	height: 40px;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.list-vid__button:hover {
+	background-color: #5847d0;
+}
+
+.item {
+	display: flex;
+	align-items: center;
+	margin-top: 18px;
+}
+
+.item:last-child {
+	margin-bottom: 18px;
+}
+
+.item-container .author-img__wrapper svg {
+	width: 15px;
+}
+
+.itm__name {
+	font-size: 13px;
+}
+
+.itm__content {
+	line-height: 1.4em;
+	max-width: 26ch;
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
 }
 /* end my classes */
+
 
 .video-stream {
 	width: 65%;
@@ -978,18 +1141,6 @@ video {
 	-webkit-box-orient: vertical;
 }
 
-.lesson:hover {
-	transform: scale(1.2);
-	transition: .2s ease-in;
-}
-
-.like:hover,
-.add:hover
-.save:hover {
-	transform: scale(1.1);
-	transition: .2s ease-in;
-}
-
 .video-js .vjs-control-bar {
 	display: flex;
 	align-items: center;
@@ -1052,10 +1203,6 @@ video {
 	background-position: 12px;
 }
 
-.class-area.vjs-control-bar:after {
-	content: ""
-}
-
 .vjs-menu-button-inline .vjs-menu {
 	top: 4px;
 }
@@ -1104,6 +1251,41 @@ button.vjs-play-control.vjs-control.vjs-button {
 	overflow: hidden;
 	min-height: 414px;
 }
+
+
+/* ==== Stream Area Show ==== */
+.stream-area {
+	display: none;
+}
+
+.show .stream-area {
+	display: flex;
+}
+
+.show .main-header,
+.show .main-blogs,
+.show .small-header,
+.show .videos {
+	display: none;
+}
+
+/* ==== Class Area Show ==== */
+.class-area {
+	display: none;
+}
+
+.show2 .class-area {
+	display: flex;
+}
+
+.show2 .main-header,
+.show2 .main-blogs,
+.show2 .small-header,
+.show2 .videos,
+.show2 .stream-area {
+	display: none;
+}
+/* ==== end Areas Show ==== */
 
 
 /* ==== Media Queries ==== */
